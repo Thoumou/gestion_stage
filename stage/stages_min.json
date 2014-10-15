@@ -1,0 +1,128 @@
+[
+{
+    "fields": {
+        "adresse": "RN10 BP14",
+        "codePostal": "28700",
+        "latitude": "0",
+        "longitude": "0",
+        "nom": "Kirchhoff",
+        "pays": "France",
+        "telephone": "41794624",
+        "ville": "Ymeray"
+    },
+    "model": "entreprises.entreprise",
+    "pk": 1
+},
+{
+    "fields": {
+        "adresse": "9423, avenue Joseph-Melanon",
+        "codePostal": "QC H2M 2H7",
+        "latitude": "0",
+        "longitude": "0",
+        "nom": "groupe pratique",
+        "pays": "Canada",
+        "telephone": "0015143895500",
+        "ville": "Montreal"
+    },
+    "model": "entreprises.entreprise",
+    "pk": 2
+},
+{
+    "fields": {
+        "adresse": "700 Rue de la Tuilerie Cedex",
+        "codePostal": "45774",
+        "latitude": "0",
+        "longitude": "0",
+        "nom": "Cigmagca",
+        "pays": "France",
+        "telephone": "0238728270",
+        "ville": "Saran"
+    },
+    "model": "entreprises.entreprise",
+    "pk": 3
+},
+{
+    "fields": {
+        "adresse": "3, rue du Carbone",
+        "codePostal": "45100",
+        "latitude": "0",
+        "longitude": "0",
+        "nom": "Lig'Air",
+        "pays": "france",
+        "telephone": "0238780949",
+        "ville": "Orleans"
+    },
+    "model": "entreprises.entreprise",
+    "pk": 4
+},
+{
+    "fields": {
+        "adresse": "46 Quai Alphonse Le Gallo",
+        "codePostal": "92648",
+        "latitude": "0",
+        "longitude": "0",
+        "nom": "Thomson",
+        "pays": "France",
+        "telephone": "0141866061",
+        "ville": "Boulogne-Billancourt"
+    },
+    "model": "entreprises.entreprise",
+    "pk": 5
+},
+{
+    "fields": {
+        "adresse": "340 Rue Marcel Paul",
+        "codePostal": "45770",
+        "latitude": "0",
+        "longitude": "0",
+        "nom": "Axantec",
+        "pays": "France",
+        "telephone": "0238737263",
+        "ville": "Saran"
+    },
+    "model": "entreprises.entreprise",
+    "pk": 6
+},
+{
+    "fields": {
+        "adresse": "9 Rue Alexandre Vezin",
+        "codePostal": "41000",
+        "latitude": "0",
+        "longitude": "0",
+        "nom": "TUB",
+        "pays": "France",
+        "telephone": "0254585588",
+        "ville": "Blois"
+    },
+    "model": "entreprises.entreprise",
+    "pk": 7
+},
+{
+    "fields": {
+        "adresse": "North East Wales Institute - Computing department PP14 Plas Coch, Mold Road",
+        "codePostal": "LL11 2AW",
+        "latitude": "0",
+        "longitude": "0",
+        "nom": "North East Wales Institute",
+        "pays": "Royaume Uni",
+        "telephone": "+44 (0) 1978 293 3",
+        "ville": "Wrexham"
+    },
+    "model": "entreprises.entreprise",
+    "pk": 8
+},
+{
+    "fields": {
+        "adresse": "Faculté des Lettres, Langues et Sciences Humaines, 10 Rue de Tours, BP  46527 Cedex 2",
+        "codePostal": "45065",
+        "latitude": "0",
+        "longitude": "0",
+        "nom": "CLCF de l'université d'Orléans",
+        "pays": "France",
+        "telephone": "0238494706",
+        "ville": "Orléans"
+    },
+    "model": "entreprises.entreprise",
+    "pk": 9
+}
+]
