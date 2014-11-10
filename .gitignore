@@ -54,5 +54,8 @@ docs/_build/
 target/
 
 
-#Supprime les fuse
+# sqlite
+stage/db.sqlite3
+
+# Supprime les fuse
 *.fuse*
