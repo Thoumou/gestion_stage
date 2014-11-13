@@ -1,13 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render_to_response
 from django.forms import ModelForm
 from django import forms
 from django.template import RequestContext
-from django.shortcuts import render
-from django.shortcuts import render_to_response
 from django.core.paginator import Paginator
 
-from entreprises.models import Entreprise # import de la class task
+from entreprises.models import Entreprise
 
 
 def index(request, page=1):
