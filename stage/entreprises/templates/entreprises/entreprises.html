@@ -16,7 +16,7 @@
 
 <table class="table table-striped table-bordered" style="cursor:pointer;">
   {% for e in entreprises %}
-  <tr><td>{{ e.nom }}</td><td>{{ e.codePostal }} {{ e.ville }}</td><td>{{ e.pays }}</td></tr>
+  <tr><td>{{ e.nom }}</td><td>{{ e.codePostal }} {{ e.ville }}</td><td>{{ e.pays }}</td><td><a href="../details"> détails</a></td></tr>
   {% endfor %}
 </table>
 {% endblock %}

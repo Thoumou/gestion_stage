@@ -23,21 +23,13 @@ class Form(ModelForm):
 		fields = ('nom',)
 		
 def ent_listing(request):
-	#from django.template import Template, Context
-	#objets=Task.objects.all().order_by('due_date')
-	#template=Template('{%for elem in objets %} {{elem}} <br/>{%endfor%}')
-	#print(str(template))
-	#context=Context({'objets':objets})
-	#print(str(template.render(context)))
-	#return HttpResponse(template.render(context))
-
 	objets=Entreprise.objects.all().order_by('nom')
 	return render_to_response('entreprises/listEnt.html',{'objets':objets})	
 	
 
 def liste_entreprises(request, page=1):
     liste = Entreprise.objects.order_by("nom")
-    p = Paginator(liste, 10)
+    p = Paginator(liste, 20)
     n = int(page)
     page = p.page(n)
     return render(request, "entreprises/entreprises.html", {
@@ -45,4 +37,8 @@ def liste_entreprises(request, page=1):
         "page" : page,
         "paginator" : p,
     })
+    
+#def detail_entreprise(request):
+	 
+	 
 		
