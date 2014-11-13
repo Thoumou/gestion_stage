@@ -1,5 +1,22 @@
-{% extends "base.html" %}
-
+{% extends 'base.html' %}
+{% block title %}{{ block.super }} | Entreprises{% endblock %}
 {% block content %}
-<p>Hello biatch</p>
+
+<ul class="pager">
+	 	
+    {% if page.has_previous %}
+    <li class="previous"><a href="{% url 'entreprises:index-page' page=page.previous_page_number %}"> &larr; Préc.</a>
+    </li>
+    {%endif%}
+    {%if page.has_next %}
+    <li class="next"><a href="{% url 'entreprises:index-page' page=page.next_page_number %}"> Suiv. &rarr;</a>
+    </li>
+    {%endif%}
+</ul>
+
+<table class="table table-striped table-bordered" style="cursor:pointer;">
+  {% for e in entreprises %}
+  <tr><td>{{ e.nom }}</td><td>{{ e.codePostal }} {{ e.ville }}</td><td>{{ e.pays }}</td><td><a href="../details"> détails</a></td></tr>
+  {% endfor %}
+</table>
 {% endblock %}
