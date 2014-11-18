@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}{{ block.super }} | Entreprises{% endblock %}
+{% block content %}
+
+<h1>Entreprise {{ entreprise.nom }}</h1>
+
+<p class="row">
+	<strong>Nom :</strong> {{ entreprise.nom }}
+</p>
+<p class="row">
+	<strong>Adresse :</strong> {{ entreprise.adresse }}
+</p>
+<p class="row">
+	<strong>Code postal :</strong> {{ entreprise.codePostal }}
+</p>
+<p class="row">
+	<strong>Ville :</strong> {{ entreprise.ville }}
+</p>
+<p class="row">
+	<strong>Pays :</strong> {{ entreprise.pays }}
+</p>
+<p class="row">
+	<strong>Téléphone :</strong> {{ entreprise.telephone }}
+</p>
+<p class="row">
+	<strong>Latitude :</strong> {{ entreprise.latitude }}
+</p>
+<p class="row">
+	<strong>Longitude :</strong> {{ entreprise.longitude }}
+</p>
+
+
+{% endblock %}
