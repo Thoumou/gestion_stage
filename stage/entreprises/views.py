@@ -9,6 +9,7 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 
 from entreprises.models import Entreprise
+from entreprises.models import AjoutForm
 from entreprises.models import ModifForm
 
 
@@ -23,7 +24,27 @@ def index(request, page=1):
         "paginator" : p,
     })
 
+def ajouter(request):
+	form = AjoutForm()
+	con ={'form': form}
+	con.update(csrf(request))
+	if len(request.POST) > 0:
+		form =AjoutForm(request.POST)
+		con = {'form': form}
+		if form.is_valid():
+			tache=form.save(commit=False)
+			con.update(csrf(request))
+			tache.save()
+			return HttpResponseRedirect("/entreprises") #Nous renvoie la si le formulaire est juste
+		else:
+			return render_to_response('entreprises/ajout.html',
+			con,context_instance=RequestContext(request))
+	else:
+		return render_to_response('entreprises/ajout.html',
+		con,context_instance=RequestContext(request));	
+		
 def modifier(request):
+	#entreprise = 
 	form = ModifForm()
 	con ={'form': form}
 	con.update(csrf(request))
@@ -40,4 +61,5 @@ def modifier(request):
 			con,context_instance=RequestContext(request))
 	else:
 		return render_to_response('entreprises/modifier.html',
-		con,context_instance=RequestContext(request));	
+		con,context_instance=RequestContext(request));			
+		

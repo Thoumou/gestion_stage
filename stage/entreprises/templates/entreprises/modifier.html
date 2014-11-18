@@ -3,7 +3,7 @@
 {% block content %}
 	<h2> Formulaire de modifications </h2>
 	<form action="" method="post" role="form" id="formModif">{% csrf_token %}
-	{{ form.as_p }}
+	{{ form.as_p }}  
 	<input type="submit" value="Submit" id="inputSubmit" />
 	</form>
 	<a href="/entreprises">Retour à la liste</a>
