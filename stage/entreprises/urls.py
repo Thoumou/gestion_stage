@@ -4,5 +4,5 @@ from entreprises import views
 urlpatterns = patterns("",
     url(r'^$', views.index, name='index'),
     url(r'^(?P<page>\d+)/?$', views.index, name='index-page'),
-	#url(r'^entreprises/detail/(?P<id>\d+)/?$', views.detail_entreprise, name="detail-entreprise"),
+	url(r'^fiche/(?P<entreprise_id>\d+)/?$', views.fiche, name="fiche"),
 )
