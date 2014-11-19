@@ -132,16 +132,6 @@ class ModifForm(ModelForm):
 		self.fields['latitude'].label = "Latitude"
 		self.fields['longitude'].label = "Longitude"
 		
-		
-		self.fields['nom'].initial = "Nom de l'ent a récup"
-		self.fields['adresse'].initial = "Adresse de l'ent a récup"
-		self.fields['codePostal'].initial = "Code postal de l'ent a récup"
-		self.fields['ville'].initial = "Ville de l'ent a récup"
-		self.fields['pays'].initial = "Pays de l'ent a récup"
-		self.fields['telephone'].initial = "Telephone de l'ent a récup"
-		self.fields['latitude'].initial = "0554 de l'ent a récup"
-		self.fields['longitude'].initial = "7785 de l'ent a récup"
-		
 		#il est possible de metre que un seul champ en utilisant le model entreprise, il suffit de ne le préciser ni dans le init ni le meta
 	class Meta:
 		model = Entreprise
