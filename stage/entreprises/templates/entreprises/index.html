@@ -22,7 +22,8 @@
 		<td>{{ entreprise.nom }}</td>
 		<td>{{ entreprise.codePostal }} {{ entreprise.ville }}</td>
 		<td>{{ entreprise.pays }}</td>
-		<td><a href="{% url 'entreprises:fiche' entreprise_id=entreprise.id %}"> détails</a></td>
+		<td><a href="{% url 'entreprises:fiche' entreprise_id=entreprise.id %}"> Détails</a></td>
+		<td><a href="{% url 'entreprises:delete' entreprise_id=entreprise.id %}"> Supprimer</a></td>
 	</tr>
 	{% endfor %}
 </table>
