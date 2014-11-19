@@ -2,18 +2,22 @@
 {% block title %}{{ block.super }} | Entreprises{% endblock %}
 {% block content %}
 
-<h1>Entreprise {{ entreprise.nom }}</h1>
+	<h1>Entreprise {{ entreprise.nom }}</h1>
 
-<p><strong>Nom :</strong>			{{ entreprise.nom }}</p>
-<p><strong>Adresse :</strong>		{{ entreprise.adresse }}</p>
-<p><strong>Code postal :</strong>	{{ entreprise.codePostal }}</p>
-<p><strong>Ville :</strong>			{{ entreprise.ville }}</p>
-<p><strong>Pays :</strong>			{{ entreprise.pays }}</p>
-<p><strong>Téléphone :</strong>		{{ entreprise.telephone }}</p>
-<p><strong>Latitude :</strong>		{{ entreprise.latitude }}</p>
-<p><strong>Longitude :</strong>		{{ entreprise.longitude }}</p>
+	<p><strong>Nom :</strong>			{{ entreprise.nom }}</p>
+	<p><strong>Adresse :</strong>		{{ entreprise.adresse }}</p>
+	<p><strong>Code postal :</strong>	{{ entreprise.codePostal }}</p>
+	<p><strong>Ville :</strong>			{{ entreprise.ville }}</p>
+	<p><strong>Pays :</strong>			{{ entreprise.pays }}</p>
+	<p><strong>Téléphone :</strong>		{{ entreprise.telephone }}</p>
+	<p><strong>Latitude :</strong>		{{ entreprise.latitude }}</p>
+	<p><strong>Longitude :</strong>		{{ entreprise.longitude }}</p>
 
-<a href="{% url 'entreprises:delete' entreprise_id=entreprise.id %}" class="btn btn-primary"> Supprimer</a>
+	<p>
+		<a href="{% url 'entreprises:modif' entreprise_id=entreprise.id %}" class="btn btn-primary"> Modifier</a>
+		<a href="{% url 'entreprises:delete' entreprise_id=entreprise.id %}" class="btn btn-danger"> Supprimer</a>
+	</p>
 
+	<a href="{% url 'entreprises:index'%}" class="btn btn-default"> Retour à la liste</a>
 
 {% endblock %}

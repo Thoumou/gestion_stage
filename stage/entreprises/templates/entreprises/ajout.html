@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 {% block title %}{{ block.super }} | Modification entreprise{% endblock %}
 {% block content %}
+
 	<h2> Formulaire d'ajout </h2>
+
 	<form action="" method="post" role="form" id="formAjout">{% csrf_token %}
-	{{ form.as_p }}
-	<input type="submit" value="Submit" id="inputSubmit" />
+		{{ form.as_p }}
+		<input class="btn btn-primary" type="submit" value="Ajouter" id="inputSubmit" />
 	</form>
-	<a href="/entreprises">Retour à la liste</a>
+	<br>
+	<a class="btn btn-default" href="{% url 'entreprises:index'%}">Retour à la liste</a>
+
 {%endblock%}	
 
 
