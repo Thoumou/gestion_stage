@@ -33,3 +33,17 @@ def fiche(request, entreprise_id=None):
 			raise Http404
 
 		return render(request, "entreprises/fiche.html", {'entreprise': entreprise})
+
+def delete(request, entreprise_id=None):
+	if (id==None):
+		return HttpResponseRedirect('/entreprises')
+
+	else:
+		try:
+			entreprise = Entreprise.objects.get(pk=entreprise_id)
+			entreprise.delete()
+
+		except Entreprise.DoesNotExist:
+			raise Http404
+
+		return HttpResponseRedirect('/entreprises')

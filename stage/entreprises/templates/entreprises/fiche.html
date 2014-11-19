@@ -4,30 +4,16 @@
 
 <h1>Entreprise {{ entreprise.nom }}</h1>
 
-<p class="row">
-	<strong>Nom :</strong> {{ entreprise.nom }}
-</p>
-<p class="row">
-	<strong>Adresse :</strong> {{ entreprise.adresse }}
-</p>
-<p class="row">
-	<strong>Code postal :</strong> {{ entreprise.codePostal }}
-</p>
-<p class="row">
-	<strong>Ville :</strong> {{ entreprise.ville }}
-</p>
-<p class="row">
-	<strong>Pays :</strong> {{ entreprise.pays }}
-</p>
-<p class="row">
-	<strong>Téléphone :</strong> {{ entreprise.telephone }}
-</p>
-<p class="row">
-	<strong>Latitude :</strong> {{ entreprise.latitude }}
-</p>
-<p class="row">
-	<strong>Longitude :</strong> {{ entreprise.longitude }}
-</p>
+<p><strong>Nom :</strong>			{{ entreprise.nom }}</p>
+<p><strong>Adresse :</strong>		{{ entreprise.adresse }}</p>
+<p><strong>Code postal :</strong>	{{ entreprise.codePostal }}</p>
+<p><strong>Ville :</strong>			{{ entreprise.ville }}</p>
+<p><strong>Pays :</strong>			{{ entreprise.pays }}</p>
+<p><strong>Téléphone :</strong>		{{ entreprise.telephone }}</p>
+<p><strong>Latitude :</strong>		{{ entreprise.latitude }}</p>
+<p><strong>Longitude :</strong>		{{ entreprise.longitude }}</p>
+
+<a href="{% url 'entreprises:delete' entreprise_id=entreprise.id %}" class="btn btn-primary"> Supprimer</a>
 
 
 {% endblock %}
