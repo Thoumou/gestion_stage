@@ -43,13 +43,13 @@ def ajouter(request):
 		return render_to_response('entreprises/ajout.html',
 		con,context_instance=RequestContext(request));	
 		
-def modifier(request):
-	#entreprise = 
-	form = ModifForm()
+def modifier(request , entreprise_id=None):
+	entreprise = Entreprise.objects.get(pk=entreprise_id) 
+	form = ModifForm(instance = entreprise)
 	con ={'form': form}
 	con.update(csrf(request))
 	if len(request.POST) > 0:
-		form =ModifForm(request.POST)
+		form =ModifForm( request.POST , instance = entreprise )
 		con = {'form': form}
 		if form.is_valid():
 			tache=form.save(commit=False)

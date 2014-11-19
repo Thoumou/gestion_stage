@@ -19,7 +19,7 @@
 
 <table class="table table-striped table-bordered" style="cursor:pointer;">
   {% for e in entreprises %}
-  <tr><td>{{ e.nom }}</td><td>{{ e.codePostal }} {{ e.ville }}</td><td>{{ e.pays }}</td><td><a href="../details"> Détails</a></td><td><a href="./modif"> Modifier</a></td></tr>
+  <tr><td>{{ e.nom }}</td><td>{{ e.codePostal }} {{ e.ville }}</td><td>{{ e.pays }}</td><td><a href="../details"> Détails</a></td><td><a href="{% url 'entreprises:modif' entreprise_id=e.id %}"> Modifier</a></td></tr>
   {% endfor %}
 </table>
 {% endblock %}
