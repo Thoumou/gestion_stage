@@ -6,6 +6,8 @@ from django.template import RequestContext
 from django.core.paginator import Paginator
 from django.http import HttpResponseRedirect
 from django.http import Http404
+from pygeocoder import Geocoder
+import os
 
 from entreprises.models import Entreprise
 
@@ -33,3 +35,32 @@ def fiche(request, entreprise_id=None):
 			raise Http404
 
 		return render(request, "entreprises/fiche.html", {'entreprise': entreprise})
+
+def geoloc(request, entreprise_id=None):
+	geocoder=Geocoder()
+	try:
+		proxy=os.environ['http_proxy']
+		geocoder.set_proxy(proxy)
+	except KeyError:
+		pass
+	entreprise = Entreprise.objects.get(pk=entreprise_id)
+	adresseComplete = entreprise.adresse_propre+","+entreprise.ville_propre
+	#testAdresse = "20 place de la Republique, Montargis"
+
+	try:
+		if geocoder.geocode(adresseComplete).valid_address :
+			resultat = geocoder.geocode(adresseComplete)
+			entreprise.latitude=resultat[0].coordinates[0]
+			entreprise.longitude=resultat[0].coordinates[1]
+			message = "adresse : "+str(resultat[0].coordinates)
+			entreprise.save()
+		else:
+			message = "adresse non valide"
+	except Exception as inst:
+		message=inst.args
+		
+	return render(request, "entreprises/geolocalisation.html", {
+		'entreprise': entreprise,
+		'afficherAC': adresseComplete,
+		'message':message
+	})

@@ -29,5 +29,6 @@
 	<strong>Longitude :</strong> {{ entreprise.longitude }}
 </p>
 
+<p><a href="{% url 'entreprises:geolocal' entreprise_id=entreprise.id %}"> Géolocaliser</a> (le chargement peut être long)</p>
 
 {% endblock %}

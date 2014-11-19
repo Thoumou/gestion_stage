@@ -1,8 +1,12 @@
 from django.db import models
 import re
 
+def addslashes(s):
+	return re.sub("(\\\\|'|\")", lambda o: "\\"+o.group(1),s)
 
 RE_CEDEX = re.compile(r'(.*)\b\s*cedex.*$',re.IGNORECASE|re.MULTILINE)
+RE_BP =  re.compile(r'(.*)\b\s*bp.*$', re.IGNORECASE|re.MULTILINE)
+
 
 class Entreprise(models.Model):
     nom        = models.CharField(max_length=100)
@@ -26,12 +30,25 @@ class Entreprise(models.Model):
         self.latitude, self.longitude = x
 
     @property
+    def nom_propre(self):
+        n =  self.nom
+        return addslashes(n)
+	
+    @property
     def ville_propre(self):
         v = self.ville
         m = RE_CEDEX.match(v)
         if m:
             v = m.group(1)
         return v
+	
+    @property
+    def adresse_propre(self):
+        a=self.adresse
+        m =  RE_BP.match(a)
+        if m:
+            a= m.group(1)
+        return addslashes(a)
 
 
 class Contact(models.Model):
