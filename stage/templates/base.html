@@ -25,12 +25,13 @@
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li><a href="{% url 'entreprises:index' %}">Entreprises</a></li>
-						<li><a href="{% url 'entreprises:index' %}">Link</a></li>
+						<li><a href="{% url 'entreprises:ajout' %}">Ajouter une Entreprise</a></li>
 					</ul>	
 				</div><!--/.navbar-collapse -->
 			</div>
 		{% endblock %}
 	</nav>
+	
 
 	<section class="container">
 		{% block content %}{% endblock %}
