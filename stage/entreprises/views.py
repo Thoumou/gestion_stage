@@ -8,6 +8,8 @@ from django.http import HttpResponseRedirect
 from django.http import Http404
 from django.core.context_processors import csrf
 from django.http import HttpResponse
+from pygeocoder import Geocoder
+import os
 
 from entreprises.models import Entreprise
 from entreprises.models import AjoutForm
@@ -94,3 +96,33 @@ def modifier(request , entreprise_id=None):
 	else:
 		return render_to_response('entreprises/modifier.html',
 		con,context_instance=RequestContext(request));			
+
+
+def geoloc(request, entreprise_id=None):
+	geocoder=Geocoder()
+	try:
+		proxy=os.environ['http_proxy']
+		geocoder.set_proxy(proxy)
+	except KeyError:
+		pass
+	entreprise = Entreprise.objects.get(pk=entreprise_id)
+	adresseComplete = entreprise.adresse_propre+","+entreprise.ville_propre
+	#testAdresse = "20 place de la Republique, Montargis"
+
+	try:
+		if geocoder.geocode(adresseComplete).valid_address :
+			resultat = geocoder.geocode(adresseComplete)
+			entreprise.latitude=resultat[0].coordinates[0]
+			entreprise.longitude=resultat[0].coordinates[1]
+			message = "adresse : "+str(resultat[0].coordinates)
+			entreprise.save()
+		else:
+			message = "adresse non valide"
+	except Exception as inst:
+		message=inst.args
+		
+	return render(request, "entreprises/geolocalisation.html", {
+		'entreprise': entreprise,
+		'afficherAC': adresseComplete,
+		'message':message
+	})

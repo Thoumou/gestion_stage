@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}{{ block.super }} | Entreprises{% endblock %}
+{% block js %}
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript" src="{% static 'js/afficherCarte.js' %}"></script>
+{% endblock %}
+{% block content %}
+
+<h1>Entreprise {{ entreprise.nom }}</h1>
+
+<p class="row">
+	<strong>Nom :</strong> {{ entreprise.nom }}
+</p>
+<p class="row">
+	<strong>Adresse :</strong> {{ entreprise.adresse }} {{ entreprise.codePostal }} {{ entreprise.ville }}
+</p>
+
+
+<p class="row">
+	<strong>Latitude :</strong> <span class="lat">{{ entreprise.latitude }}</span>
+</p>
+<p class="row">
+	<strong>Longitude :</strong> <span class="lon">{{ entreprise.longitude }}</span>
+</p>
+<br />
+
+<section id="containerCarte">
+	<article id="carte" style="width:100%; height:100%">
+	
+	</article>
+</section>
+<br />
+<h3>Test</h3>
+<p>Adresse complete : {{ afficherAC }}</p>
+<p>{{ message }}</p>
+
+<a href="{% url 'entreprises:fiche' entreprise_id=entreprise.id %}"> Retour à l'entreprise</a>
+{% endblock %}
+

@@ -17,6 +17,7 @@
 		<a href="{% url 'entreprises:modif' entreprise_id=entreprise.id %}" class="btn btn-primary"> Modifier</a>
 		<a href="{% url 'entreprises:delete' entreprise_id=entreprise.id %}" class="btn btn-danger"> Supprimer</a>
 	</p>
+	<p><a href="{% url 'entreprises:geolocal' entreprise_id=entreprise.id %}"> Géolocaliser</a> (le chargement peut être long)</p>
 
 	<a href="{% url 'entreprises:index'%}" class="btn btn-default"> Retour à la liste</a>
 

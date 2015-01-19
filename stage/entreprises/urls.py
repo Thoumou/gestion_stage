@@ -8,4 +8,5 @@ urlpatterns = patterns("",
 	url(r'^delete/(?P<entreprise_id>\d+)/?$', views.delete, name="delete"),
     url(r'^ajout/$', views.ajouter, name="ajout"),
     url(r'^modif/(?P<entreprise_id>\d+)/?$', views.modifier, name="modif"),
+	url(r'^fiche/(?P<entreprise_id>\d+)/?/geolocalisation$', views.geoloc, name="geolocal"),
 )
