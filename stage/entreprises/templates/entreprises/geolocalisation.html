@@ -23,18 +23,16 @@
 <p class="row">
 	<strong>Longitude :</strong> <span class="lon">{{ entreprise.longitude }}</span>
 </p>
-<br />
-
 <section id="containerCarte">
 	<article id="carte" style="width:100%; height:100%">
 	
 	</article>
 </section>
-<br />
-<h3>Test</h3>
-<p>Adresse complete : {{ afficherAC }}</p>
-<p>{{ message }}</p>
 
-<a href="{% url 'entreprises:fiche' entreprise_id=entreprise.id %}"> Retour à l'entreprise</a>
+<p>
+	<a class="btn btn-default" id="itineraire">Afficher l'itinéraire</a>
+</p>
+
+<p><a class="btn btn-primary" href="{% url 'entreprises:fiche' entreprise_id=entreprise.id %}"> Retour à l'entreprise</a></p>
 {% endblock %}
 
