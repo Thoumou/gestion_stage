@@ -123,14 +123,14 @@ class AjoutForm(ModelForm):
 		self.fields['longitude'].label = "Longitude"
 		
 		
-		self.fields['nom'].initial = "Nom "
-		self.fields['adresse'].initial = "Adresse"
-		self.fields['codePostal'].initial = "Code postal"
-		self.fields['ville'].initial = "Ville"
-		self.fields['pays'].initial = "Pays"
-		self.fields['telephone'].initial = "Telephone"
-		self.fields['latitude'].initial = "0554"
-		self.fields['longitude'].initial = "7785"
+		#self.fields['nom'].initial = "Nom "
+		#self.fields['adresse'].initial = "Adresse"
+		#self.fields['codePostal'].initial = "Code postal"
+		#self.fields['ville'].initial = "Ville"
+		#self.fields['pays'].initial = "Pays"
+		#self.fields['telephone'].initial = "Telephone"
+		self.fields['latitude'].initial = "0"
+		self.fields['longitude'].initial = "0"
 		
 		#il est possible de metre que un seul champ en utilisant le model entreprise, il suffit de ne le préciser ni dans le init ni le meta
 	class Meta:
